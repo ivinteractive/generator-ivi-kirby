@@ -1,0 +1,11 @@
+/vendor/
+/node_modules/
+.env
+/site/accounts/*
+!/site/accounts/.gitkeep
+/site/cache/*
+!/site/cache/.gitkeep
+/public/thumbs/*
+!/public/thumbs/.gitkeep
+/public/assets/avatars/*
+!/public/assets/avatars/.gitkeep

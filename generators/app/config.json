@@ -1,0 +1,76 @@
+{
+	"directories": [
+		"migrations",
+		"seeds",
+		"public/assets/avatars",
+		"public/content/home",
+		"public/thumbs",
+		"resources/js/templates",
+		"resources/riot",
+		"resources/scss/templates",
+		"site/accounts",
+		"site/cache",
+		"site/config",
+		"site/controllers",
+		"site/models",
+		"site/plugins",
+		"site/tags",
+		"site/templates"
+	],
+	"files": [
+		".env",
+		".env.example",
+		".gitignore",
+		"composer.json"
+	],
+	"gitkeeps": [
+		"migrations",
+		"seeds",
+		"public/assets/avatars",
+		"public/thumbs",
+		"site/accounts",
+		"site/cache"
+	],
+	"gitmodules": [
+		{
+			"path": "public/panel",
+			"url": "https://github.com/getkirby/panel.git"
+		},
+		{
+			"path": "public/kirby",
+			"url": "https://github.com/getkirby/kirby.git"
+		},
+		{
+			"path": "site/fields/tabs",
+			"url": "https://github.com/byybora/Kirby-Tabs-Field"
+		},
+		{
+			"path": "site/plugins/redirecty",
+			"url": "https://github.com/ivinteractive/kirbycms-redirects.git"
+		},
+		{
+			"path": "site/fields/markdown",
+			"url": "https://github.com/JonasDoebertin/kirby-visual-markdown.git"
+		},
+		{
+			"path": "site/plugins/thumbext",
+			"url": "https://github.com/jbeyerstedt/kirby-plugin-thumbExt.git"
+		},
+		{
+			"path": "site/plugins/components",
+			"url": "https://github.com/ivinteractive/kirby-components.git"
+		},
+		{
+			"path": "site/fields/field-selector",
+			"url": "https://github.com/storypioneers/kirby-selector.git"
+		},
+		{
+			"path": "site/plugins/flusher",
+			"url": "https://github.com/ivinteractive/flusher.git"
+		},
+		{
+			"path": "site/plugins/minifyhtml",
+			"url": "https://github.com/ian-cox/Kirby-MinifyHTML"
+		}
+	]
+}

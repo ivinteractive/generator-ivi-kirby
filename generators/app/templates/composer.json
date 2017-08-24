@@ -1,0 +1,17 @@
+{
+    "name": "ivinteractive/{title}",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^2.4",
+        "robmorgan/phinx": "^0.8.1",
+        "mobiledetect/mobiledetectlib": "^2.8",
+        "nesbot/carbon": "^1.22",
+        "sentry/sentry": "^1.7"
+    },
+    "authors": [
+        {
+            "name": "ivinteractive",
+            "email": "support@ivinteractive.com"
+        }
+    ]
+}

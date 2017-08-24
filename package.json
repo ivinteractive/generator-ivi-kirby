@@ -1,0 +1,52 @@
+{
+  "name": "generator-ivi-kirby",
+  "version": "0.0.0",
+  "description": "Scaffolding for our Kirby sites with Gulp/Composer",
+  "homepage": "",
+  "author": {
+    "name": "ivinteractive",
+    "email": "support@ivinteractive.com",
+    "url": "https://www.ivinteractive.com"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "kirby",
+    "gulp",
+    "yeoman-generator"
+  ],
+  "devDependencies": {
+    "eslint": "^4.1.0",
+    "eslint-config-xo-space": "^0.16.0",
+    "jest": "^19.0.2",
+    "jest-cli": "^20.0.0",
+    "nsp": "^2.6.3",
+    "yeoman-assert": "^3.0.0",
+    "yeoman-test": "^1.6.0"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "mkdirp": "^0.5.1",
+    "yeoman-generator": "^1.0.0",
+    "yosay": "^2.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "prepublish": "nsp check",
+    "pretest": "eslint . --fix",
+    "test": "jest"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "jest": true,
+      "node": true
+    }
+  },
+  "repository": "ivinteractive/generator-ivi-kirby",
+  "license": "MIT"
+}

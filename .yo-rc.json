@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "ivinteractive",
+      "authorEmail": "support@ivinteractive.com",
+      "authorUrl": "https://www.ivinteractive.com"
+    }
+  }
+}
