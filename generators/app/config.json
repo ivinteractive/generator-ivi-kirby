@@ -72,5 +72,34 @@
 			"path": "site/plugins/minifyhtml",
 			"url": "https://github.com/ian-cox/Kirby-MinifyHTML"
 		}
+	],
+	"tpls": [
+		{
+			"folder": "blueprints",
+			"file": "blueprint.yaml",
+			"destination": "default.yaml"
+		},
+		{
+			"folder": "controllers",
+			"file": "controller.php",
+			"destination": "default.php"
+		},
+		{
+			"folder": "models",
+			"file": "model.php",
+			"destination": "default.php"
+		},
+		{
+			"folder": "templates",
+			"file": "template.php",
+			"destination": "default.php"
+		}
+	],
+	"siteFolders": [
+		"blueprints",
+		"config",
+		"plugins",
+		"snippets",
+		"tags"
 	]
 }

@@ -1,0 +1,18 @@
+type: group
+fields:
+  tabSEO:
+    label: SEO
+    type:  tabs
+    icon: search
+  title_tag:
+    label: Title tag
+    type: text
+    icon: code
+  meta_description:
+    label: Description
+    type:  text
+    icon: code
+  keywords:
+    label: Keywords
+    type:  tags
+    icon: code

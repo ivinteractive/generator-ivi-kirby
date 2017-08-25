@@ -1,0 +1,70 @@
+title: Page
+pages: true
+files: true
+fields:
+  tabContent:
+    label: Content
+    type:  tabs
+    icon: file-text-o
+  title:
+    label: Title
+    type:  text
+  menuTitle:
+    label: Menu title
+    type:  text
+    width: 1/2
+  sidebarTitle:
+    label: Sidebar title
+    type: text
+    width: 1/2
+  text:
+    label: Text
+    type: markdown
+  bg: sitebg
+  sections:
+    label: Sections
+    type: structure
+    modalsize: large
+    fields:
+      section_id:
+        label: ID
+        type: text
+      text:
+        label: Text
+        type: markdown
+      type:
+        label: Section type
+        type: fieldtoggle
+        options:
+          wide: Wide
+          split: Split
+        default: wide
+        show:
+          split: bg_video split_video split_side
+        hide:
+          wide: bg_video split_video split_side
+      classes:
+        label: Classes
+        type: tags
+        index: template
+      bg:
+        label: Background image
+        type: selector
+      bg_video:
+        label: Video background image
+        type: selector
+      split_video:
+        label: Video for split section
+        type: text
+      split_side:
+        label: Side for text to appear on
+        type: radio
+        options:
+          left: Left
+          right: Right
+        default: left
+  tabAdditional:
+    label: Additional content
+    type: tabs
+    icon: file-text-o
+  seo: seo
