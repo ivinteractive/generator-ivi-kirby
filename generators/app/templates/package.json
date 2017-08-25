@@ -1,0 +1,30 @@
+{
+  "name": "ivi-{title}",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "ivinteractive <support@ivinteractive.com>",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.18.12",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-riot": "^1.1.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-shorthand": "^1.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^4.3.11",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "node-bourbon": "^4.2.8",
+    "node-neat": "1.7.2",
+    "run-sequence": "^1.2.2"
+  },
+  "devDependencies": {
+    "node-normalize-scss": "^3.0.0"
+  }
+}

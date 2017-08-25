@@ -21,7 +21,9 @@
 		".env",
 		".env.example",
 		".gitignore",
-		"composer.json"
+		"composer.json",
+		"package.json",
+		"gulpfile.js"
 	],
 	"gitkeeps": [
 		"migrations",
