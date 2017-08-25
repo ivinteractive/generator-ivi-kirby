@@ -19,11 +19,19 @@ module.exports = class extends Generator {
       'Welcome to the badass ' + chalk.red('IV Interactive Kirby') + ' generator!'
     ));
 
-    const prompts = [{
-      type: 'input',
-      name: 'folderName',
-      message: 'What should the folder be called?'
-    }];
+    const prompts = [
+      {
+        type: 'input',
+        name: 'folderName',
+        message: 'What should the folder be called?'
+      },
+      {
+        type: 'input',
+        name: 'repo',
+        message: 'Is there a remote repository set up? If so, enter the URL here. If not, leave blank.',
+        default: 'no'
+      }
+    ];
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
@@ -81,12 +89,25 @@ module.exports = class extends Generator {
   }
 
   install() {
-  //   var path = process.cwd() + '/' + this.props.folderName;
-  //   process.chdir(path);
-  //   this.yarnInstall();
-  //   this.spawnCommand('composer', ['install']);
-  //   this.spawnCommandSync('git', ['init']);
-  //   for(var gm=0; gm<gitmodules.length; gm++)
-  //     this.spawnCommandSync('git', ['submodule', 'add', gitmodules[gm].url, gitmodules[gm].path]);
+    var path = process.cwd() + '/' + this.props.folderName;
+    process.chdir(path);
+
+    var repo = this.props.repo==='no' ? false : this.props.repo;
+
+    this.spawnCommandSync('yarn', ['install']);
+    this.spawnCommandSync('composer', ['install']);
+    this.spawnCommandSync('git', ['init']);
+    for(var gm=0; gm<gitmodules.length; gm++)
+      this.spawnCommandSync('git', ['submodule', 'add', gitmodules[gm].url, gitmodules[gm].path]);
+    this.spawnCommandSync('git', ['add', '--all']);
+    this.spawnCommandSync('git', ['commit', '-m', 'Initial commit']);
+
+    if(repo) {
+      this.spawnCommandSync('git', ['remote', 'add', 'origin', repo]);
+      this.spawnCommandSync('git', ['push', '-u', 'origin', 'master']);
+      this.spawnCommandSync('git', ['checkout', '-b', 'dev']);
+      this.spawnCommandSync('git', ['push', '-u', 'origin', 'dev']);
+    }
+
   }
 };
