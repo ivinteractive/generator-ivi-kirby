@@ -30,6 +30,12 @@ module.exports = class extends Generator {
         name: 'repo',
         message: 'Is there a remote repository set up? If so, enter the URL here. If not, leave blank.',
         default: 'no'
+      },
+      {
+        type: 'input',
+        name: 'config',
+        message: 'What should the local config be named?',
+        default: 'config.localhost.php'
       }
     ];
 
@@ -72,6 +78,12 @@ module.exports = class extends Generator {
         this.templatePath('tpls/'+tpls[t].file),
         this.destinationPath(folderName+'/site/'+tpls[t].folder+'/'+tpls[t].destination)
       );
+
+    // Copy the local config file
+    this.fs.copy(
+      this.templatePath('config.localhost.php'),
+      this.destinationPath(folderName+'/site/config/'+this.props.config)
+    );
 
     // Single files to copy over
     for(var f=0; f<files.length; f++)

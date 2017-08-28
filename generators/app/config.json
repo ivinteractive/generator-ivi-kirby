@@ -23,7 +23,11 @@
 		".gitignore",
 		"composer.json",
 		"package.json",
-		"gulpfile.js"
+		"gulpfile.js",
+		"site.php",
+		"bootstrap.php",
+		"public/site.php",
+		"public/index.php"
 	],
 	"gitkeeps": [
 		"migrations",
@@ -63,7 +67,7 @@
 			"url": "https://github.com/ivinteractive/kirby-components.git"
 		},
 		{
-			"path": "site/fields/field-selector",
+			"path": "site/plugins/field-selector",
 			"url": "https://github.com/storypioneers/kirby-selector.git"
 		},
 		{
@@ -100,6 +104,7 @@
 	"siteFolders": [
 		"blueprints",
 		"config",
+		"fields",
 		"plugins",
 		"snippets",
 		"tags"

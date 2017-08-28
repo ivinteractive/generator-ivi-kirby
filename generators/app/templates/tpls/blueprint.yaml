@@ -32,17 +32,6 @@ fields:
       text:
         label: Text
         type: markdown
-      type:
-        label: Section type
-        type: fieldtoggle
-        options:
-          wide: Wide
-          split: Split
-        default: wide
-        show:
-          split: bg_video split_video split_side
-        hide:
-          wide: bg_video split_video split_side
       classes:
         label: Classes
         type: tags
