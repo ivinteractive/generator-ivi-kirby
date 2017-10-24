@@ -2,45 +2,27 @@
 
 page::$methods['titleTag'] = function($page) {
 
-	$text = ($page->title_tag()->isEmpty()) ? $page->title()->value() .' | '.site()->title_tag()->value() : $page->title_tag()->value();
+	$title_tag = $page->title_tag() != '' ? $page->title_tag()->html() : $page->title()->html() .' | '.site()->title_tag()->html();
 
-	return brick('title', html($text));
+	return brick('title', $title_tag);
 
 };
 
 
 page::$methods['metaDescription'] = function($page) {
 
-	$text = ($page->meta_description()->isEmpty()) ? $page->title()->value().' '.site()->meta_description()->value() : $page->meta_description()->value();
+	$meta_description = $page->meta_description() != '' ? $page->meta_description()->html() : $page->title()->html().' '.site()->meta_description()->html();
 
-	return brick('meta', false, ['content'=>html($text), 'name'=>'description']);
+	return brick('meta', false, ['content'=>$meta_description, 'name'=>'description']);
 
 };
 
 
 page::$methods['metaKeywords'] = function($page) {
 
-	$keywords = ($page->keywords()->isEmpty()) ? site()->keywords() : $page->keywords();
+	$keywords = $page->keywords() != '' ? $page->keywords() : site()->keywords();
 
 	return brick('meta', false, ['content'=>$keywords, 'name'=>'keywords']);
-
-};
-
-
-page::$methods['ogTitle'] = function($page) {
-
-	$text = ($page->title_tag()->isEmpty()) ? site()->title_tag() : $page->title_tag();
-
-	return brick('meta', false, ['content'=>$text->html(), 'name'=>'og:title']);
-
-};
-
-
-page::$methods['ogDescription'] = function($page) {
-
-	$text = ($page->meta_description()->isEmpty()) ? site()->meta_description() : $page->meta_description();
-
-	return brick('meta', false, ['content'=>$text->html(), 'name'=>'og:description']);
 
 };
 
@@ -52,9 +34,42 @@ page::$methods['metaTags'] = function($page) {
 };
 
 
-page::$methods['openGraph'] = function($page) {
+page::$methods['socialTags'] = function($page) {
 
-	return $page->ogTitle().$page->ogDescription();
+	$sitename = site()->title()->html();
+	$url = $page->url();
+	$title = r($page->social_title() != '', $page->social_title()->html(), r(site()->social_title() != '', site()->social_title()->html(), $page->title()->html()));
+	$description = r($page->social_description() != '', $page->social_description()->html(), r(site()->social_description() != '', site()->social_description()->html(), $page->title()->html().' '.site()->meta_description()->html()));
+	$image = $page->buildSocialImage();
+
+	$content ='<meta property="og:title" content="'.$title.'">';
+	$content.='<meta property="og:description" content="'.$description.'">';
+	$content.='<meta property="og:image" content="'.$image.'">';
+	$content.='<meta property="og:url" content="'.$url.'">';
+	$content.= '<meta property="og:site_name" content="'.$sitename.'">';
+	$content.='<meta property="og:type" content="article">';
+
+	$content.= '<meta name="twitter:title" content="'.$title.'">';
+	$content.= '<meta name="twitter:description" content="'.$description.'">';
+	$content.= '<meta name="twitter:image:src" content="'.$image.'">';
+	$content.= '<meta name="twitter:url" content="'.$url.'">';
+	$content.= '<meta name="twitter:site" content="'.site()->twitterUsername()->value().'">';
+	$content.= '<meta name="twitter:card" content="summary_large_image">';
+
+	return $content;
+
+};
+
+
+page::$methods['buildSocialImage'] = function($page) {
+
+	if($page->template() == 'post' && $page->featured_image() != '') {
+		return $page->image($page->featured_image())->url();
+	} else if($page->social_image() != '') {
+		return $page->image($page->social_image())->url();
+	} else if(site()->social_image() != '') {
+		return site()->image(site()->social_image())->url();
+	}
 
 };
 

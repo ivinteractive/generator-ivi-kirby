@@ -1,0 +1,17 @@
+type: group
+fields:
+  tabSocial:
+    label: Social
+    type:  tabs
+    icon: share-alt
+  social_title:
+    label: Title
+    type: text
+    icon: code
+  social_description:
+    label: Description
+    type:  text
+    icon: code
+  social_image:
+    label: Image
+    type:  image
