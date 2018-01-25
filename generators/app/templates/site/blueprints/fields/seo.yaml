@@ -16,3 +16,7 @@ fields:
     label: Keywords
     type:  tags
     icon: code
+  noindex:
+    label: Index Page
+    type: checkbox
+    text: Don't index this page?

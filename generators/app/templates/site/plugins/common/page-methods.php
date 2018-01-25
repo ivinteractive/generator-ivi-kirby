@@ -53,7 +53,7 @@ page::$methods['socialTags'] = function($page) {
 	$content.= '<meta name="twitter:description" content="'.$description.'">';
 	$content.= '<meta name="twitter:image:src" content="'.$image.'">';
 	$content.= '<meta name="twitter:url" content="'.$url.'">';
-	$content.= '<meta name="twitter:site" content="'.site()->twitterUsername()->value().'">';
+	$content.= '<meta name="twitter:site" content="'.site()->twitter_username()->value().'">';
 	$content.= '<meta name="twitter:card" content="summary_large_image">';
 
 	return $content;

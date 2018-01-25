@@ -58,3 +58,5 @@ c::set('redirecty',true);
 if(function_exists('panel')) { c::set('MinifyHTML', false); }
 
 c::set('timezone', 'America/New_York');
+
+c::set('gtm-id', EnvHelper::env('GTM_ID', null));
