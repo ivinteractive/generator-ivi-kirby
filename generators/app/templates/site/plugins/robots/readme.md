@@ -1,17 +1,8 @@
-# Kirby robots.txt Plugin
+# IVI Kirby robots.txt Plugin
 
-This plugin adds a route for ```robots.txt```.
+This plugin creates a ```robots.txt``` file.
 
 ## Installation
 
 Copy ```robots.php``` to ```/site/plugins/```.
-
-## Usage
-
-Nothing required.
-
-The sitemap plugin is recommended.
-
-## Author
-
-Thomas Ghysels <info@thomasg.be>
+Enter ```yoursite.domain/robots.txt``` to create the file. Refresh to see its contents.

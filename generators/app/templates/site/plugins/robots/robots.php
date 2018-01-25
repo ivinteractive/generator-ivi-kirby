@@ -1,20 +1,22 @@
 <?php
 
-kirby()->routes([
-	[
-		'pattern' => 'robots.txt',
-		'action'	=> function() {
+$robots = 'robots.txt';
 
-			$response = 'User-agent: *'.PHP_EOL
-					   .'Disallow: /content/*.txt$'.PHP_EOL
-					   .'Disallow: /kirby/'.PHP_EOL
-					   .'Disallow: /panel/'.PHP_EOL
-					   .'Disallow: /*.md$'.PHP_EOL
-					   .'Disallow: /app/storage/$'.PHP_EOL
-					   .'Sitemap: ' . u('sitemap.xml');
+kirby()->routes(array(
+	array(
+		'pattern' => $robots,
+		'action'	=> function() use($robots) {
+			if(!file_exists($robots)) {
+				$content = 'User-agent: *'.PHP_EOL
+						  .'Disallow: /content/*.txt$'.PHP_EOL
+						  .'Disallow: /kirby/'.PHP_EOL
+						  .'Disallow: /site/'.PHP_EOL
+						  .'Disallow: /panel/'.PHP_EOL
+						  .'Disallow: /*.md$'.PHP_EOL
+						  .'Sitemap: ' . u('sitemap.xml');
 
-			return new Response($response, 'txt');
-
+				file_put_contents(kirby()->roots()->index() .  DS . $robots, $content);
+			}
 		}
-	]
-]);
+	)
+));
